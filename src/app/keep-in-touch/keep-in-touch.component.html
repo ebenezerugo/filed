@@ -1,0 +1,50 @@
+<div class="form">
+  <div class="form-header">
+    <div class="form-title">
+      We’ll be in touch to get your trial set up.
+    </div>
+    <div class="form-sub-title">
+      Fill Out Form
+    </div>
+  </div>
+
+  <div class="form-body">
+    <div class="form-control">
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div>
+          <div class="firstname">
+            <input  type="text" name="firstName" formControlName="firstName" placeholder="Firstname *" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" required>
+            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+              <div *ngIf="f.firstName.errors.required">Firstname is required</div>
+            </div>
+          </div>
+          <div class="lastname">
+            <input  type="text" name="lastName" formControlName="lastName" placeholder="Lastname *" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" required>
+            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+              <div *ngIf="f.lastName.errors.required">Lastname is required</div>
+            </div>
+          </div>
+          <input type="text" name="email" formControlName="email" placeholder="Work Email *" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" required>
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+          </div>
+          <input type="text" name="monthlyAdvertisingBudget" formControlName="monthlyAdvertisingBudget" placeholder="Monthly Advertising Budget *" [ngClass]="{ 'is-invalid': submitted && f.monthlyAdvertisingBudget.errors }" required>
+          <div *ngIf="submitted && f.monthlyAdvertisingBudget.errors" class="invalid-feedback">
+            <div *ngIf="f.monthlyAdvertisingBudget.errors.required">Monthly advertising budget is required</div>
+          </div>
+          <input type="text" name="phoneNumber" formControlName="phoneNumber" placeholder="Phone" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }" required>
+          <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+            <div *ngIf="f.phoneNumber.errors.required">Phone number is required</div>
+          </div>
+        </div>
+
+        <div class="btn-container">
+          <button type="submit" [disabled]="loading" class="btn">
+            <span *ngIf="loading">Processing</span>
+            <span *ngIf="!loading">GET FREE TRIAL</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
